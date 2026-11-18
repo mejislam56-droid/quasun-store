@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QUASUN Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+    body { background: #0a0a0a; color: #fff; padding-bottom: 70px; }
+    .header { background: #141414; padding: 15px; position: sticky; top: 0; border-bottom: 1px solid #262626; }
+    .brand { font-size: 22px; font-weight: bold; letter-spacing: 2px; margin-bottom: 10px; }
+    .brand span { color: #00e676; }
+    .search-box { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #333; background: #1f1f1f; color: #fff; }
+    .banner { margin: 15px; padding: 20px; background: #1a1a1a; border-radius: 12px; border: 1px solid #333; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px; }
+    .card { background: #161616; border: 1px solid #262626; border-radius: 10px; padding: 12px; }
+    .img-box { height: 100px; background: #222; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 10px; }
+    .title { font-size: 14px; font-weight: bold; margin-bottom: 5px; }
+    .price { font-size: 15px; color: #00e676; font-weight: bold; margin-bottom: 10px; }
+    .btn { width: 100%; padding: 9px; background: #fff; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="brand">QUASUN<span>.</span></div>
+    <input type="text" class="search-box" id="search" onkeyup="filterItems()" placeholder="Search in QUASUN...">
+  </div>
+  <div class="banner"><h3>Fast & Trusted Delivery in Bangladesh</h3></div>
+  <div class="grid" id="grid">
+    <div class="card">
+      <div class="img-box">🍔</div>
+      <div class="title">QUASUN Special Burger</div>
+      <div class="price">৳ 250</div>
+      <button class="btn" onclick="orderNow('QUASUN Special Burger', '250')">Order Now</button>
+    </div>
+    <div class="card">
+      <div class="img-box">🍱</div>
+      <div class="title">Daily Tiffin Meal Box</div>
+      <div class="price">৳ 180</div>
+      <button class="btn" onclick="orderNow('Daily Tiffin Meal Box', '180')">Order Now</button>
+    </div>
+    <div class="card">
+      <div class="img-box">🚁</div>
+      <div class="title">Tiger TI-16 Mini Drone</div>
+      <div class="price">৳ 12500</div>
+      <button class="btn" onclick="orderNow('Tiger TI-16 Mini Drone', '12500')">Order Now</button>
+    </div>
+  </div>
+  <script>
+    function orderNow(item, price) {
+      const msg = encodeURIComponent("Assalamu Alaikum QUASUN! I want to order: " + item + " (৳" + price + ")");
+      window.open("https://wa.me" + msg, "_blank");
+    }
+    function filterItems() {
+      const q = document.getElementById("search").value.toLowerCase();
+      document.querySelectorAll(".card").forEach(c => {
+        c.style.display = c.innerText.toLowerCase().includes(q) ? "block" : "none";
+      });
+    }
+  </script>
+</body>
+</html>
