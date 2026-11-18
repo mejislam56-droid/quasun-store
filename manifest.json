@@ -1,0 +1,16 @@
+{
+  "name": "QUASUN Store",
+  "short_name": "QUASUN",
+  "start_url": "/quasun-store/",
+  "scope": "/quasun-store/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00e676",
+  "icons": [
+    {
+      "src": "https://flaticon.com",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
